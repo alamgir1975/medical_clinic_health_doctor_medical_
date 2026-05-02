@@ -1,27 +1,27 @@
 /**
  * @package 	WordPress
  * @subpackage 	Medical Clinic
- * @version 	1.1.7
- *
- * CMSMasters Woocommerce Settings Scripts
+ * @version		1.0.8
+ * 
+ * Timetable Admin Settings Toggles Scripts
  * Created by CMSMasters
- *
+ * 
  */
 
 
-(function ($) {
-    if ($('input[name*="' + cmsmasters_woocommerce_settings.shortname + '_header_styles"]:checked').val() === 'c_nav') {
-        $('#' + cmsmasters_woocommerce_settings.shortname + '_woocommerce_cart_dropdown').parents('tr').hide();
-    } else {
-        $('#' + cmsmasters_woocommerce_settings.shortname + '_woocommerce_cart_dropdown').parents('tr').show();
-    }
-
-
-    $('input[name*="' + cmsmasters_woocommerce_settings.shortname + '_header_styles"]').on('change', function () {
-        if ($('input[name*="' + cmsmasters_woocommerce_settings.shortname + '_header_styles"]:checked').val() === 'c_nav') {
-            $('#' + cmsmasters_woocommerce_settings.shortname + '_woocommerce_cart_dropdown').parents('tr').hide();
-        } else {
-            $('#' + cmsmasters_woocommerce_settings.shortname + '_woocommerce_cart_dropdown').parents('tr').show();
-        }
-    } );
+(function ($) { 
+	/* Single Posts 'Timetable Event' Tab Fields Load*/
+	if ($('#' + cmsmasters_timetable_settings.shortname + '_tt_event_hours').is(':not(:checked)')) {
+		$('#' + cmsmasters_timetable_settings.shortname + '_tt_event_hours_title').parents('tr').hide();
+	}
+	
+	/* Single Posts 'Timetable Event' Tab 'Hours' Field Change */
+	$('#' + cmsmasters_timetable_settings.shortname + '_tt_event_hours').on('change', function () { 
+		if ($(this).is(':checked')) {
+			$('#' + cmsmasters_timetable_settings.shortname + '_tt_event_hours_title').parents('tr').show();
+		} else {
+			$('#' + cmsmasters_timetable_settings.shortname + '_tt_event_hours_title').parents('tr').hide();
+		}
+	} );
 } )(jQuery);
+
